@@ -4,7 +4,7 @@ Group project for LABDSOF subject of the Master in Software Engineering course a
 Park20 is a (fictional) company operating in the area of car and motorcycle parking.
 Recently the company decided to approach a new way for its customers to use its parks providing a new and improved customer experience.
 
-**Important note**: The project itself is very extense, and for academic purposes only a prototype with a limited number of features and component was implemented. It's not fully implemented nor there are plans to fully develop it in the future.
+**Important note**: The project itself is very extense, and for academic purposes only a prototype with a limited number of features and components was implemented. It's not fully implemented nor there are plans to fully develop it in the future.
 
 
 Prototype features (Park configuration is to be done by bootstrapping the database):
@@ -128,5 +128,5 @@ These are all the High Level Requirements for the project.
       - When a car approaches the entrance and the license plate is read, the display shows a personalized welcome message :white_check_mark:
       - When a car approaches the exit and the license plate is read, the display shows a personalized goodbye message and shows the cost of the parking :white_check_mark:
 6. Park20 Web site
-    a. Landing page with commercial info
-    b. App download links
+    - Landing page with commercial info
+    - App download links
