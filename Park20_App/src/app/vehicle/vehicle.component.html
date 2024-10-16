@@ -1,0 +1,32 @@
+<div class="container d-flex flex-column" style="height:100%">
+  <div class="row text-center">
+    <h2>{{"RegisterVehicles" | translate}}</h2>
+  </div>
+
+  <div class="row mb-1 border-bottom" *ngFor="let vehicle of form.controls; let i = index;">
+
+    <component-text-collumn class="col-6" [label]="'LicensePlate' | translate" [content]="vehicle.get('licensePlate').value"></component-text-collumn>
+
+    <component-text-collumn class="col-6" [label]="'Brand' | translate" [content]="vehicle.get('brand').value"></component-text-collumn>
+
+    <component-text-collumn class="col-6" [label]="'Model' | translate" [content]="vehicle.get('model').value"></component-text-collumn>
+
+    <component-text-collumn class="col-6" [label]="'Category' | translate" [content]="vehicle.get('category').value"></component-text-collumn>
+
+  </div>
+
+  <div class="row my-3">
+    <div class="d-flex justify-content-center">
+      <button mat-raised-button color="primary" (click)="addVehicle()">{{"AddVehicle" | translate}}</button>
+    </div>
+
+  </div>
+
+
+  <div class="row mt-auto mb-3">
+    <div class="d-flex justify-content-center">
+      <button mat-raised-button color="primary" (click)="confirm()">{{"Confirm" | translate}}</button>
+    </div>
+  </div>
+</div>
+

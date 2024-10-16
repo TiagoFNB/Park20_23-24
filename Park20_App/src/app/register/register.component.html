@@ -1,0 +1,22 @@
+<div class="h-100 w-100 container d-flex flex-column py-3 justify-content-center align-items-center">
+
+<div class="w-100 d-flex justify-content-end p-3 top-buttons">
+  <component-language-button class="language-button"></component-language-button>
+</div>
+
+
+<div class="register-container d-flex justify-content-center">
+  <div [ngSwitch]="step" style="height:inherit">
+    <!-- User data -->
+      <component-register-data class="switch-container" *ngSwitchCase="1" [form]="userForm" (next)="nextStep()"></component-register-data>
+    <!-- Vehicles -->
+      <component-register-vehicles class="switch-container" *ngSwitchCase="2" [form]="vehiclesForm" (next)="nextStep()" (back)="backStep()"></component-register-vehicles>
+    <!-- Payment Methods -->
+      <component-register-payments class="switch-container" *ngSwitchCase="3" [form]="paymentsForm" (next)="nextStep()" (back)="backStep()"></component-register-payments>
+    <!-- Terms and Conditions -->
+    <component-register-terms class="switch-container" *ngSwitchCase="4" [form]="termsForm"  (next)="nextStep()" (back)="backStep()"></component-register-terms>
+  </div>
+
+</div>
+
+</div>

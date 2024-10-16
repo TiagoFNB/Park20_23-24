@@ -1,0 +1,9 @@
+
+.lang-button {
+  background-color: white;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}

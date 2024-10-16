@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>{{"AddPayment" | translate}}</h2>
+<mat-dialog-content [formGroup]="paymentForm" class="mat-typography">
+  <mat-form-field class="col-12 mb-3">
+    <mat-label>{{
+      "PhoneNumber" | translate
+    }}</mat-label>
+    <input matInput type="text" formControlName="phoneNumber" maxlength="9" minlength="9" placeholder="999999999" >
+  </mat-form-field>
+
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>{{"Cancel" | translate}}</button>
+  <button mat-button (click)="onAddClick()" [disabled]="paymentForm.invalid" cdkFocusInitial>{{"Add" | translate}}</button>
+</mat-dialog-actions>

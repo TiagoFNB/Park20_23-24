@@ -1,0 +1,25 @@
+<form [formGroup]="form" class="container d-flex flex-column">
+  <div class="row text-center">
+    <h2>{{"RegisterTerms" | translate}}</h2>
+  </div>
+
+  <div class="scrollable-content border border-dark">
+    {{"TermsAndConditions" | translate}}
+  </div>
+
+
+  <div class="row my-3" >
+    <mat-checkbox formControlName="accept">
+        {{"AcceptTerms" | translate}}
+    </mat-checkbox>
+  </div>
+
+  <div class="row d-flex align-items-center my-3 m-auto">
+    <div class="col-6 d-flex  justify-content-start">
+        <button mat-raised-button color="primary" (click)="backStep()">{{"Back" | translate}}</button>
+    </div>
+    <div class="col-6 d-flex  justify-content-end p-auto">
+      <button mat-raised-button color="primary" (click)="nextStep()" [disabled]="!form.get('accept').value">{{"Confirm" | translate}}</button>
+    </div>
+  </div>
+</form>

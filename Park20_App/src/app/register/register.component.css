@@ -1,0 +1,29 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.register-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+
+  max-width: 250px;
+
+  width: 80%;
+  min-height: 50%;
+  background-color: #ffffff;
+  border: 1px solid var(--secondary);
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.top-buttons {
+  position: absolute;
+  top: 0;
+}
+
+

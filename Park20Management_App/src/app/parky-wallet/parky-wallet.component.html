@@ -1,0 +1,22 @@
+<div class="container d-flex flex-column" style="height: 100%">
+  <div class="row text-center">
+    <h2>{{ "Parky Wallet Management" | translate }}</h2>
+  </div>
+
+
+  <form [formGroup]="form">
+    <mat-form-field class="col-12" >
+      <mat-label>{{
+        "Amount to Assign" | translate
+      }}</mat-label>
+      <input matInput type="number" formControlName="amount">
+    </mat-form-field>
+  </form>
+
+  <div class="row mt-auto mb-3">
+    <div class="d-flex justify-content-center">
+      <button mat-raised-button color="primary" (click)="confirm()">{{"Assign" | translate}}</button>
+    </div>
+  </div>
+
+</div>

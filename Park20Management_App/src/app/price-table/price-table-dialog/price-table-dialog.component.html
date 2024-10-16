@@ -1,0 +1,167 @@
+<div style="text-align:center;"><h2 mat-dialog-title ca>{{"PriceTable" | translate}}</h2></div>
+<ng-container *ngIf="!data.new">
+  <mat-dialog-content  class="mat-typography">
+  <component-text-collumn class="col-6" [label]="'Park' | translate" [content]="data.pt.parkId"></component-text-collumn>
+
+  <component-text-collumn class="col-6" [label]="'EffectiveTime' | translate" [content]="data.pt.effectiveTime"></component-text-collumn>
+
+  
+
+  <h4 mat-dialog-title>{{"Periods" | translate}}</h4>
+  <div class="row mb-1" *ngFor="let period of data.pt.periods; let i = index;">
+  
+    <component-text-collumn class="col-6" [label]="'StartTime' | translate" [content]="period.startTime"></component-text-collumn>
+
+    <component-text-collumn class="col-6" [label]="'EndTime' | translate" [content]="period.endTime"></component-text-collumn>
+
+    <h5 mat-dialog-title>{{"Fractions" | translate}}</h5>
+    <div class="col-12 mx-2 mb-1 border-bottom d-flex" *ngFor="let fractions of period.fractions; let i = index;">
+  
+      <component-text-collumn class="col-5" [label]="'AutomobilePrice' | translate" [content]="fractions.automobilePrice"></component-text-collumn>
+  
+      <component-text-collumn class="col-5" [label]="'MotorcyclePrice' | translate" [content]="fractions.motorcyclePrice"></component-text-collumn>
+  
+    </div>
+    <mat-divider></mat-divider>
+  </div>
+  </mat-dialog-content>
+</ng-container>
+<ng-container *ngIf="data.new">
+  <mat-dialog-content  [formGroup]="priceTableForm" class="mat-typography">
+    <!-- <component-text-collumn class="col-6" [label]="'Park' | translate" [content]="data.pt.parkId"></component-text-collumn> -->
+
+    <mat-form-field class="col-6 mb-2">
+      <mat-label>{{'ChooseDate' | translate}}</mat-label>
+      <input matInput [matDatepicker]="picker" [min]="minDate" formControlName="effectiveTime">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <!-- <mat-form-field class="col-12 mb-3">
+      <mat-label>{{
+        "LicensePlate" | translate
+      }}</mat-label>
+      <input matInput type="text" formControlName="licensePlate" maxlength="8" minlength="8" placeholder="AA-00-AA" (change)="detectVehicleCharacteristics()">
+    </mat-form-field> -->
+    <mat-divider></mat-divider>
+    <div class="col-12 justify-content-between align-items-center d-flex">
+      <strong class="col-11 text-dark">{{"Periods" | translate}}</strong>
+      <div class="col-1 mt-2">
+        <button mat-mini-fab color="primary" aria-label="add period" [disabled]="maxPeriodsReached || editingPeriod" (click)="addPeriod()">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+      <mat-divider></mat-divider>
+    </div>
+
+    <div formArrayName="periods">
+      <div class="my-2" *ngFor="let period of periods.controls; let i = index">
+        <div class="row" [formGroupName]="i">
+          <ng-container *ngIf="period.value.editing">
+          <div class="col-6">
+            <mat-form-field >
+              <mat-label>{{'ChooseStartingTime'|translate}}</mat-label>
+              <input matInput
+                    [format]="24"
+                    formControlName="startTime"
+                    [ngxMatTimepicker]="pickerA"
+                    placeholder="16:00"
+                    readonly />
+              <mat-icon matSuffix
+                        (click)="pickerA.open()">
+                  watch_later
+              </mat-icon>
+            </mat-form-field>
+            <ngx-mat-timepicker color="accent"
+                              #pickerA></ngx-mat-timepicker>
+          </div>
+          <div class="col-6">
+            <mat-form-field>
+              <mat-label>{{'ChooseEndingTime'|translate}}</mat-label>
+              <input matInput
+                      [format]="24"
+                      formControlName="endTime"
+                      [ngxMatTimepicker]="pickerB"
+                      placeholder="16:00"
+                      readonly />
+              <mat-icon matSuffix
+                        (click)="pickerB.open()">
+                  watch_later
+              </mat-icon>
+            </mat-form-field>
+            <ngx-mat-timepicker color="accent"
+                              #pickerB></ngx-mat-timepicker>
+          </div>
+          <div class="col-12 justify-content-between align-items-center d-flex">
+            <strong class="col-11 text-dark" >{{"Fractions" | translate}}</strong>
+            <div class="col-1 mt-2">
+              <button mat-mini-fab color="primary" aria-label="Add fraction" [disabled]="maxFractionsReached " (click)="addFraction(i)">
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+          </div>
+          <div formArrayName="fractions">
+            <div *ngFor="let fraction of getFractions(period); let j = index">
+              <div class="row align-items-center" [formGroupName]="j">
+                <p class="col-1">{{j+1}}</p>
+                <mat-form-field class="col-3">
+                  <mat-label>{{"AutomobilePrice"|translate}}</mat-label>
+                  <input matInput type="number" formControlName="automobilePrice"/>
+                </mat-form-field>
+                <mat-form-field class="col-3">
+                  <mat-label>{{"MotorcyclePrice"|translate}}</mat-label>
+                  <input matInput type="number" formControlName="motorcyclePrice"/>
+                </mat-form-field>
+                <div class="col-2">
+                <button mat-button color="primary" (click)="deleteFraction(i,j)" [disabled]="period.invalid">{{"RemoveFraction" | translate}}</button>
+                </div>
+              </div>
+            </div>
+          </div>  
+          <div class="col-2">
+            <button mat-button color="primary" (click)="onAddPeriod(i)" [disabled]="period.invalid">{{"SavePeriod" | translate}}</button>
+          </div>
+        <mat-divider></mat-divider>
+        </ng-container>
+        <ng-container *ngIf="!period.value.editing">
+        <component-text-collumn class="col-5" [label]="'StartTime' | translate" [content]="period.value.startTime"></component-text-collumn>
+
+        <component-text-collumn class="col-5" [label]="'EndTime' | translate" [content]="period.value.endTime"></component-text-collumn>
+        <div class="col-2">
+        <button mat-button color="primary" (click)="deletePeriod(i)" [disabled]="period.invalid">{{"RemovePeriod" | translate}}</button>
+        </div>
+      </ng-container>
+     </div>
+    </div>
+
+
+    <!-- <mat-form-field class="col-12 mb-3">
+      <mat-label>{{
+        "Brand" | translate
+      }}</mat-label>
+      <input matInput type="text" formControlName="brand" readonly>
+    </mat-form-field>
+
+    <mat-form-field class="col-12 mb-3" >
+      <mat-label>{{
+        "Model" | translate
+      }}</mat-label>
+      <input matInput type="text" formControlName="model" readonly>
+    </mat-form-field>
+
+    <mat-form-field class="col-12 mb-3" >
+      <mat-label>{{
+        "Category" | translate
+      }}</mat-label>
+      <input matInput type="text" formControlName="category" readonly>
+    </mat-form-field> -->
+    </div>
+  </mat-dialog-content>
+</ng-container>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>{{"Cancel" | translate}}</button>
+  <ng-container *ngIf="data.new">
+  <button mat-button (click)="onAddClick()" [disabled]="priceTableForm.invalid" cdkFocusInitial>{{"SavePriceTable" | translate}}</button>
+  </ng-container> 
+</mat-dialog-actions>

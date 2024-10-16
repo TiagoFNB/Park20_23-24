@@ -1,0 +1,60 @@
+<mat-toolbar color="primary">
+  <div class="col-2 d-flex justify-content-start align-items-center">
+    <button mat-icon-button aria-label="Menu icon" (click)="toggleMenu()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div class="col-6 d-flex justify-content-start align-items-center">
+    <h1 class="col-4 text-center m-0">Park20</h1>
+  </div>
+  <div class="col-4 d-flex justify-content-end align-items-center">
+    <component-language-button style="max-height:fit-content"></component-language-button>
+    <button mat-icon-button aria-label="Menu icon">
+      <i class="fa-regular fa-bell"></i>
+    </button>
+    <button mat-icon-button aria-label="Menu icon">
+      <i class="fa-regular fa-user"></i>
+    </button>
+  </div>
+</mat-toolbar>
+<mat-sidenav-container autosize="true">
+  <mat-sidenav [ngClass]="!isCollapsed ? 'expanded' : ''" [mode]="this.mobileQuery.matches ? 'over' : 'side'" [opened]="this.mobileQuery.matches ? 'false' : 'true'">
+    <mat-nav-list>
+      <ng-container *ngFor="let item of items">
+        <a mat-list-item (click)="onSelect(item)">
+          <span class="entry">
+            <i class={{item.icon}}></i>
+            <span *ngIf="!isCollapsed"> {{ item.name | translate }}</span>
+          </span>
+        </a>
+      </ng-container>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <ng-container [ngSwitch]="selected.name">
+      <div  *ngSwitchCase="null">
+        <h2>{{"WelcomeMessage" | translate}}</h2>
+        <p class="p-2">{{"CommercialInfoExample" | translate}}</p>
+      </div>
+
+      <component-managers *ngSwitchCase="'Managers Configuration'"></component-managers>
+      <component-dashboard *ngSwitchCase="'Reports and analytics'"></component-dashboard>
+      <component-parks *ngSwitchCase="'Park Management'"></component-parks>
+      <component-parky-wallet *ngSwitchCase="'Parky Wallet'"></component-parky-wallet>
+      <component-price-table *ngSwitchCase="'PriceTables'"></component-price-table>
+      <component-rank-customers *ngSwitchCase="'Rank customers usage'"></component-rank-customers>
+      <router-outlet *ngSwitchCase="'Routed'"></router-outlet>
+    </ng-container>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+<!-- <button mat-raised-button color="warn">I am a sailor</button> -->
+
+
+<!-- <mat-nav-list>
+  <ng-container *ngFor="let item of items">
+    <a mat-list-item routerLink=".">{{item}}</a>
+  </ng-container>
+</mat-nav-list> -->

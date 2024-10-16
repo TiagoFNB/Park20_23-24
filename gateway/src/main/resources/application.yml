@@ -1,0 +1,34 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: SandwichManagement
+          uri: lb://SANDWICHMANAGEMENT
+          predicates:
+            - Path=/sandwich/**
+          filters:
+            - RewritePath=/sandwich, /graphql
+        - id: UserManagement
+          uri: lb://USERMANAGEMENT
+          predicates:
+            - Path=/user/**
+          filters:
+            - RewritePath=/user, /graphql
+        - id: PromotionManagement
+          uri: lb://PROMOTIONMANAGEMENT
+          predicates:
+            - Path=/promotion/**
+          filters:
+            - RewritePath=/promotion, /graphql
+        - id: OrderManagement
+          uri: lb://ORDERMANAGEMENT
+          predicates:
+            - Path=/order/**
+          filters:
+            - RewritePath=/order, /graphql
+        - id: ShopManagement
+          uri: lb://SHOPMANAGEMENT
+          predicates:
+            - Path=/shop/**
+          filters:
+            - RewritePath=/shop, /graphql

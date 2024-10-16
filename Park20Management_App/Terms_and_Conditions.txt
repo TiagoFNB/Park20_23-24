@@ -1,0 +1,54 @@
+Terms and Conditions
+
+Last Updated: 01/12/2023
+
+1. Acceptance of Terms
+
+By accessing or using Park20 (the "App"), you agree to comply with and be bound by these Terms and Conditions. If you do not agree to these terms, please do not use the App.
+
+2. Personal Data Collection
+
+Park20 collects the following personal data from its users: fiscal number, name, username, password, email, vehicle license plate, and location data. By using the App, you consent to the collection, storage, and processing of this information in accordance with our Privacy Policy.
+
+3. Use of Personal Data
+
+The personal data collected will be used for the following purposes:
+
+To create and manage user accounts.
+To provide and improve our services.
+To communicate with users, including sending important notices and updates.
+To personalize user experience.
+To track user location for the purpose of providing location-based services and learning vehicle parking habits.
+To comply with legal obligations.
+
+4. Location Tracking and Parking Habits
+
+Park20 tracks user location to enhance user experience, provide location-based services, and learn vehicle parking habits. Users acknowledge and agree to this tracking, which can be enabled or disabled in the app settings.
+
+5. Security
+
+Park20 takes reasonable measures to protect the security and confidentiality of user information. However, we cannot guarantee the security of information transmitted through the App, and users provide information at their own risk.
+
+6. User Responsibilities
+
+Users are responsible for maintaining the confidentiality of their account information, including passwords. They agree to notify Park20 immediately of any unauthorized use of their account.
+
+7. Third-Party Services
+
+The App may integrate with third-party services. Users are encouraged to review the terms and privacy policies of these services, as Park20 is not responsible for their practices.
+
+8. Changes to Terms and Conditions
+
+Park20 reserves the right to modify these Terms and Conditions at any time. Users will be notified of significant changes, and continued use of the App after such changes constitutes acceptance of the revised terms.
+
+9. Termination
+
+Park20 reserves the right to terminate or suspend user accounts for violation of these Terms and Conditions or for any other reason.
+
+10. Governing Law
+
+These Terms and Conditions are governed by and construed in accordance with the laws of the European Union, Park20 acknowledges the requirements of the General Data Protection Regulation (GDPR) regarding the processing of personal data.
+
+11. Contact Information
+
+If you have any questions or concerns about these Terms and Conditions, please contact us at hr-park20@fakeemail.com.

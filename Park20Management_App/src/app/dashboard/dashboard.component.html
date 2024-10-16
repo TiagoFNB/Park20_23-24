@@ -1,0 +1,77 @@
+<div class="container d-flex flex-column" style="height: 100%">
+  <div class="row text-center">
+    <h2>{{ "Dashboard" | translate }}</h2>
+  </div>
+
+  <ng-container *ngIf="waitingForSubscription()">
+    <div class="row mt-3">
+      <div class="col-12 col-md-6">
+        <div class="row text-center">
+          <b>{{ "Most Popular Days of Week" | translate }}</b>
+        </div>
+        <div class="row d-flex justify-content-center">
+          <canvas
+            baseChart
+            [data]="graphByDayofWeek_barChartData"
+            [options]="graphByDayofWeek_barChartOptions"
+            [plugins]="graphByDayofWeek_barChartPlugins"
+            [legend]="graphByDayofWeek_barChartLegend"
+            [type]="'bar'"
+          >
+          </canvas>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6">
+        <div class="row text-center">
+          <b>{{ "Park Usage By Time of Day" | translate }}</b>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <canvas baseChart width="400" height="400"
+            [type]="'line'"
+            [data]="lineChartData"
+            [options]="lineChartOptions"
+            [legend]="lineChartLegend">
+          </canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-12 col-md-6">
+        <div class="row text-center">
+          <b>{{ "ParkUsageLastMonth" | translate }}</b>
+        </div>
+        <div class="row d-flex justify-content-center">
+          <canvas
+            baseChart
+            [data]="graphByParkUsage_barChartData"
+            [options]="graphByParkUsage_barChartOptions"
+            [plugins]="graphByParkUsage_barChartPlugins"
+            [legend]="graphByParkUsage_barChartLegend"
+            [type]="'bar'"
+          >
+          </canvas>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6">
+        <div class="row text-center">
+          <b>{{ "ParkUsageByVehicleTypeSinceForever" | translate }}</b>
+        </div>
+        <div class="row d-flex justify-content-center">
+          <canvas class="graph"
+            baseChart
+            [type]="'pie'"
+            [datasets]="graphByVehicleType_pieChartDatasets"
+            [labels]="graphByVehicleType_pieChartLabels"
+            [options]="graphByVehicleType_pieChartOptions"
+            [plugins]="graphByVehicleType_pieChartPlugins"
+            [legend]="graphByVehicleType_pieChartLegend"
+          >
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

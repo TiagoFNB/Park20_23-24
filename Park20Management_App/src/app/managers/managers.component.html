@@ -1,0 +1,12 @@
+<div class="container d-flex flex-column" style="height:100%">
+  <div class="row text-center">
+    <h2>{{"Managers" | translate}}</h2>
+  </div>
+
+  <div class="row mb-1 border-bottom hoverable" *ngFor="let manager of managers; let i = index;" (click)="redirectToManager(manager)">
+    <component-text-collumn class="col-6" [label]="'Id' | translate" [content]="manager.id"></component-text-collumn>
+
+    <component-text-collumn class="col-6" [label]="'Username' | translate" [content]="manager.username"></component-text-collumn>
+  </div>
+</div>
+

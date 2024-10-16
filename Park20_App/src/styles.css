@@ -1,0 +1,37 @@
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;background-color: var(--primary); }
+
+
+:root {
+  --primary: #3f51b5;
+  --secondary: #bcbcbc;
+  --accent: #ff4081;
+  --warn: #f44336;
+  --primary-text-color: rgb(255, 255, 255);
+  --secondary-text-color: #3f51b5;
+}
+
+/* Snackbar colorings */
+.mat-mdc-snack-bar-container {
+  &.warning-toast {
+    --mdc-snackbar-container-color: rgb(243, 146, 35);
+    --mat-mdc-snack-bar-button-color: #fff;
+    --mdc-snackbar-supporting-text-color: #fff;
+  }
+}
+
+.mat-mdc-snack-bar-container {
+  &.notification-toast {
+    --mdc-snackbar-container-color: #5cff98;
+    --mat-mdc-snack-bar-button-color: #fff;
+    --mdc-snackbar-supporting-text-color: #fff;
+  }
+}
+
+.mat-mdc-snack-bar-container {
+  &.error-toast {
+    --mdc-snackbar-container-color: #ff1900;
+    --mat-mdc-snack-bar-button-color: #fff;
+    --mdc-snackbar-supporting-text-color: #fff;
+  }
+}

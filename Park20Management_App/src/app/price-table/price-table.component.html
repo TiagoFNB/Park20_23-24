@@ -1,0 +1,38 @@
+<div class="container d-flex flex-column" style="height:100%">
+  <div class="row text-center">
+    <h2>{{"PriceTables" | translate}}</h2>
+  </div>
+
+  <div class="row my-3">
+    <div class="d-flex justify-content-between">
+      <mat-form-field>
+        <mat-label>Park</mat-label>
+        <mat-select [(value)]="selectedPark" (selectionChange)="fetchTables()">
+          <mat-option *ngFor="let p of listParks" [value]="p.designation">
+            {{p.designation}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-raised-button color="between" [disabled]="!this.selectedPark" (click)="addPriceTable()">{{"AddPriceTable" | translate}}</button>
+    </div>
+
+  </div>
+
+   <div class="row list mb-1 border-bottom" *ngFor="let pt of listPriceTables; let i = index;" (click)="showPriceTable(pt)">
+  
+    <component-text-collumn class="col-6" [label]="'Park' | translate" [content]="pt.parkId"></component-text-collumn>
+
+    <component-text-collumn class="col-6" [label]="'EffectiveTime' | translate" [content]="pt.effectiveTime"></component-text-collumn>
+
+  </div>
+
+  <div class="row list mb-1 border-bottom" *ngIf="listPriceTables.length==0">
+  
+    <div class="row text-center">
+      <strong>{{"NoResults" | translate}}</strong>
+    </div>
+
+  </div>
+
+</div>
+

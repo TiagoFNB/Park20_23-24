@@ -1,0 +1,9 @@
+<button class="lang-button p-3" mat-icon-button aria-label="Language icon" [matMenuTriggerFor]="languageSelectMenu">
+  <i class="fa-solid fa-language primary-color"></i>
+</button>
+
+<mat-menu #languageSelectMenu="matMenu">
+  <button mat-menu-item (click)="changeLanguage('en')">English</button>
+  <button mat-menu-item (click)="changeLanguage('pt')">Português</button>
+  <button mat-menu-item (click)="changeLanguage('es')">Español</button>
+</mat-menu>

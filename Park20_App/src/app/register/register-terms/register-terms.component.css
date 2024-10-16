@@ -1,0 +1,10 @@
+.bottom-buttons {
+  position: absolute;
+  bottom: 0;
+}
+
+.scrollable-content {
+  max-height: 200px; /* Adjust the height as needed */
+  overflow-y: auto;
+  white-space: pre-line;
+}

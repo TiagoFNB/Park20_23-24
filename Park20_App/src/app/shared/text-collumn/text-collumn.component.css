@@ -1,0 +1,12 @@
+.label {
+  font-size: 0.8em; /* Adjust the font size as needed */
+  font-weight: lighter;
+  width: 100%;
+  text-align: left;
+}
+
+.content {
+  text-align: left;
+}
+
+

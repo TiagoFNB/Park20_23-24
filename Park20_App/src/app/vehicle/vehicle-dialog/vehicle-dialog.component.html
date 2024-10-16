@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>{{"AddVehicle" | translate}}</h2>
+<mat-dialog-content [formGroup]="vehicleForm" class="mat-typography">
+  <mat-form-field class="col-12 mb-3">
+    <mat-label>{{
+      "LicensePlate" | translate
+    }}</mat-label>
+    <input matInput type="text" formControlName="licensePlate" maxlength="8" minlength="8" placeholder="AA-00-AA" (change)="detectVehicleCharacteristics()">
+  </mat-form-field>
+
+  <mat-form-field class="col-12 mb-3" >
+    <mat-label>{{
+      "Brand" | translate
+    }}</mat-label>
+    <input matInput type="text" formControlName="brand" readonly>
+  </mat-form-field>
+
+  <mat-form-field class="col-12 mb-3" >
+    <mat-label>{{
+      "Model" | translate
+    }}</mat-label>
+    <input matInput type="text" formControlName="model" readonly>
+  </mat-form-field>
+
+  <mat-form-field class="col-12 mb-3" >
+    <mat-label>{{
+      "Category" | translate
+    }}</mat-label>
+    <input matInput type="text" formControlName="category" readonly>
+  </mat-form-field>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>{{"Cancel" | translate}}</button>
+  <button mat-button (click)="onAddClick()" [disabled]="vehicleForm.invalid" cdkFocusInitial>{{"Add" | translate}}</button>
+</mat-dialog-actions>

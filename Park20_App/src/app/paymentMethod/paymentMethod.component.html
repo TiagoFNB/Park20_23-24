@@ -1,0 +1,26 @@
+<div class="container" style="height:100%">
+    <div class="row">
+      <h2>{{"PaymentMethod" | translate}}</h2>
+    </div>
+  
+  
+    <div class="row mb-1 border-bottom" *ngFor="let payment of form.controls; let i = index;">
+  
+      <component-text-collumn class="col-6" [label]="'PhoneNumber' | translate" [content]="payment.get('phoneNumber').value"></component-text-collumn>
+  
+    </div>
+  
+    <div class="row mb-3 d-flex align-items-center">
+      <div>
+        <button mat-raised-button color="primary" (click)="addPaymentMethod()">{{"AddPaymentMethod" | translate }}</button>
+      </div>
+  
+    </div>
+
+    <div class="row mt-auto mb-3">
+      <div class="d-flex justify-content-center">
+        <button mat-raised-button color="primary" (click)="confirm()">{{"Confirm" | translate}}</button>
+      </div>
+    </div>
+  
+  </div>

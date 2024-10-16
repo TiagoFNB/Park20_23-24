@@ -1,0 +1,40 @@
+<div class="container d-flex flex-column" style="height:100%">
+  <div class="row text-center">
+    <h2>{{"Customer usage ranking" | translate}}</h2>
+  </div>
+
+  <div class="row my-3">
+    <div class="d-flex justify-content-between">
+      <mat-form-field>
+        <mat-label>Park</mat-label>
+        <mat-select [(value)]="selectedParks" (selectionChange)="fetchCustomers()" multiple>
+          <mat-option *ngFor="let p of listParks" [value]="p.designation">
+            {{p.designation}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+
+  </div>
+
+   <div class="row list mb-1 border-bottom" *ngFor="let pt of listCustomers; let i = index;">
+  
+    <component-text-collumn class="col-5" [label]="'Name' | translate" [content]="pt.name"></component-text-collumn>
+
+    <component-text-collumn class="col-5" [label]="'Email' | translate" [content]="pt.email"></component-text-collumn>
+
+    <component-text-collumn class="col-2" [label]="'Duration' | translate" [content]="pt.duration"></component-text-collumn>
+
+  </div>
+
+  <div class="row list mb-1 border-bottom" *ngIf="listCustomers.length==0">
+  
+    <div class="row text-center">
+      <strong>{{"NoResults" | translate}}</strong>
+    </div>
+
+  </div>
+
+</div>
+

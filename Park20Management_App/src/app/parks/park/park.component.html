@@ -1,0 +1,62 @@
+<div class="container d-flex flex-column" style="height: 100%">
+  <div class="row text-center">
+    <h2>{{ "Park" | translate }} - {{ designation }}</h2>
+  </div>
+
+  <form [formGroup]="form">
+    <mat-form-field class="col-6" >
+      <mat-label>{{
+        "Max Spots Gas" | translate
+      }}</mat-label>
+      <input matInput type="number" formControlName="SpotsGas">
+    </mat-form-field>
+    <mat-form-field class="col-6" >
+      <mat-label>{{
+        "Max Spots Eletric" | translate
+      }}</mat-label>
+      <input matInput type="number" formControlName="SpotsEletric">
+    </mat-form-field>
+    <mat-form-field class="col-6" >
+      <mat-label>{{
+        "Max Spots GPL" | translate
+      }}</mat-label>
+      <input matInput type="number" formControlName="SpotsGPL">
+    </mat-form-field>
+    <mat-form-field class="col-6" >
+      <mat-label>{{
+        "Max Spots Motorcycle" | translate
+      }}</mat-label>
+      <input matInput type="number" formControlName="SpotsMotorcycle">
+    </mat-form-field>
+    <mat-form-field class="col-6" >
+      <mat-label>{{
+        "Max Spots Handicapped" | translate
+      }}</mat-label>
+      <input matInput type="number" formControlName="SpotsHandicapped">
+    </mat-form-field>
+    <mat-form-field class="col-6" >
+      <mat-label>{{
+        "Parky Coin Hourly Gain" | translate
+      }}</mat-label>
+      <input matInput type="number" formControlName="ParkyCoinHourlyGain">
+    </mat-form-field>
+    <mat-form-field class="col-6" >
+      <mat-label>{{
+        "Parky Coin Worth In Time" | translate
+      }}</mat-label>
+      <input matInput type="number" formControlName="ParkyCoinWorthInTime">
+    </mat-form-field>
+    <mat-form-field class="col-6" >
+      <mat-label>{{
+        "Parky Coin Usage Minimum" | translate
+      }}</mat-label>
+      <input matInput type="number" formControlName="ParkyCoinUsageMinimum">
+    </mat-form-field>
+  </form>
+
+  <div class="row mt-auto mb-3">
+    <div class="d-flex justify-content-center">
+      <button mat-raised-button color="primary" (click)="confirm()">{{"Confirm" | translate}}</button>
+    </div>
+  </div>
+</div>

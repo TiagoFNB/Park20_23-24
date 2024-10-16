@@ -1,0 +1,20 @@
+<div class="container d-flex flex-column" style="height: 100%">
+  <div class="row text-center">
+    <h2>{{ "Managers" | translate }} - {{ username }}</h2>
+  </div>
+
+  <form [formGroup]="form">
+    <mat-form-field>
+      <mat-label>{{ "Parks" | translate }}</mat-label>
+      <mat-select formControlName="parks" multiple>
+        <mat-option *ngFor="let park of parkList" [value]="park.id">{{ park.designation}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+
+  <div class="row mt-auto mb-3">
+    <div class="d-flex justify-content-center">
+      <button mat-raised-button color="primary" (click)="confirm()">{{"Confirm" | translate}}</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+.bottom-buttons {
+  position: absolute;
+  bottom: 0;
+}
+
+.row.list:hover {
+  background-color: lightgray; /* Change background color on hover */
+  cursor: pointer; /* Show pointer cursor on hover */
+}
